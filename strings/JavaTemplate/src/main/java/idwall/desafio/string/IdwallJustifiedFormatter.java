@@ -38,8 +38,8 @@ public class IdwallJustifiedFormatter extends IdwallFormatter {
      * Considera-se que os espaços deverão ser distribuídos da forma mais uniforme possível, então os espaços
      * "irregulares", que deixam alguns delimitadores maiores que outros, serão preenchidos nos delimitadores ímpares
      * primeiro, da esquerda para a direita, e quando todos os ímpares estiverem preenchidos serão preenchidos nos
-     * pares. Por exemplo, para 7 espaços adicionais e 5 delimitadores, a quantidade de espaços deve ser
-     * [0, 3, 2, 3, 2, 2].
+     * pares, da direita para a esquerda. Por exemplo, para 7 espaços adicionais e 5 delimitadores, a quantidade de
+     * espaços deve ser [0, 3, 2, 3, 2, 2].
      *
      * @param position       Posição da palavra, à qual será adicionada o delimitador à esquerda.
      * @param spareLength    Número de espaços adicionais que precisam ser adicionados na linha para justificá-la.
@@ -64,7 +64,8 @@ public class IdwallJustifiedFormatter extends IdwallFormatter {
             // posição par. Define se este limitador terá um espaço a mais.
             // o número de delimitadores ímpares é a metade do número de delimitadores arredondada para cima.
             int oddDelimiterCount = (int) Math.ceil((double) delimiterCount / 2);
-            if ((remainder - oddDelimiterCount) * 2 >= position) {
+            // preenche da direita para a esquerda, se todas as posições ímpares estiverem preenchidas.
+            if (remainder > oddDelimiterCount && spareLength - position <= remainder) {
                 extraSpaceCount++;
             }
         }
