@@ -8,7 +8,7 @@ import idwall.desafio.string.StringFormatter;
  */
 public class Main {
 
-    private static final String DEFAULT_INPUT_TEXT = "In the beginning God created the heavens and the earth. Now the earth was formless and empty, darkness was over the surface of the deep, and the Spirit of God was hovering over the waters.\n" +
+    public static final String DEFAULT_INPUT_TEXT = "In the beginning God created the heavens and the earth. Now the earth was formless and empty, darkness was over the surface of the deep, and the Spirit of God was hovering over the waters.\n" +
             "\n" +
             "And God said, \"Let there be light,\" and there was light. God saw that the light was good, and he separated the light from the darkness. God called the light \"day,\" and the darkness he called \"night.\" And there was evening, and there was morning - the first day.";
     private static final Integer DEFAULT_LIMIT = 40;
@@ -41,7 +41,7 @@ public class Main {
         System.out.println("=========================");
 
         // Run IdwallFormatter
-        final StringFormatter sf = new IdwallFormatter();
+        final StringFormatter sf = new IdwallFormatter(limit);
         String outputText = sf.format(text);
 
         // Print output text
