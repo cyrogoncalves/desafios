@@ -1,6 +1,7 @@
 package idwall.desafio;
 
 import idwall.desafio.string.IdwallFormatter;
+import idwall.desafio.string.IdwallJustifiedFormatter;
 import idwall.desafio.string.StringFormatter;
 
 /**
@@ -41,7 +42,7 @@ public class Main {
         System.out.println("=========================");
 
         // Run IdwallFormatter
-        final StringFormatter sf = new IdwallFormatter(limit);
+        final StringFormatter sf = justify ? new IdwallJustifiedFormatter(limit) : new IdwallFormatter(limit);
         String outputText = sf.format(text);
 
         // Print output text
