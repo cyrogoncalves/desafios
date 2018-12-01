@@ -1,4 +1,4 @@
-package crawl;
+package crawl.reddit;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

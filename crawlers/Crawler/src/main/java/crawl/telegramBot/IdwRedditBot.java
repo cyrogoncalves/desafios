@@ -1,5 +1,6 @@
-package crawl;
+package crawl.telegramBot;
 
+import crawl.reddit.RedditCrawler;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -11,7 +12,7 @@ public class IdwRedditBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        // É preciso verificar também se a mensagem está vazia, o que é o caso quando o bot é registrado no Main.
+        // É preciso verificar também se a mensagem está vazia, o que é o caso quando o bot é registrado no TelegramBotMain.
         if (!update.hasMessage() || !update.getMessage().hasText() || update.getMessage().getText().isEmpty()) {
             return;
         }
