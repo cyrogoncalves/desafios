@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 public class RedditCrawler {
 
     /**
-     * Varre cada subreddtit especificado em busca de posts com mais de 5000 pontos.
+     * Varre cada subreddit especificado em busca de posts com mais de 5000 pontos.
      *
      * @param subredditNames Nomes dos subreddits, separados por ";".
      * @return Lista de referências das threads com mais de 5000 pontos.
@@ -40,7 +40,7 @@ public class RedditCrawler {
                                     thing.attr("data-score"),
                                     thing.absUrl("data-url"),
                                     thing.absUrl("data-permalink")))
-                    .collect(Collectors.joining("\n")));
+                    .collect(Collectors.joining("\n\n")));
         } catch (IOException e) {
             e.printStackTrace();
             return "Me atrapalhei pra acessar a internet, nem sei como estou falando com você!";
